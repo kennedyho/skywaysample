@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SkyWay 4K - Test App</title>
+	
+	<!-- css -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/materialdesignicons.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/prettyPhoto.css" />
+	<link rel="stylesheet" type="text/css" href="css/unslider.css" />
+	<link rel="stylesheet" type="text/css" href="css/template.css" />
+	<link rel="stylesheet" href="css/style.css">
+	
+</head>
+
+<body data-target="#nino-navbar" data-spy="scroll">
+
+	<!-- Header
+    ================================================== -->
+	<header id="nino-header">
+		<div id="nino-headerInner">					
+			<nav id="nino-navbar" class="navbar navbar-default" role="navigation">
+				<div class="container">
+
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nino-navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="homepage.html">SkyWay 4K Test App</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="nino-menuItem pull-right">
+						<div class="collapse navbar-collapse pull-left" id="nino-navbar-collapse">
+							<ul class="nav navbar-nav">
+								<li class="active"><a href="#nino-header">Home <span class="sr-only">(current)</span></a></li>
+								<li><a href="#nino-story">About</a></li>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+
+					</div>
+				</div><!-- /.container-fluid -->
+			</nav>
+		</div>
+	</header><!--/#header-->
+
+    <section id="nino-uniqueDesign">
+    	<div class="container"></div>
+			<div class="sectionContent">
+				<div class="pure-g">
+
+					<!-- Video area -->
+					<div class="pure-u-2-3" id="video-container">
+						<video id="their-video" autoplay></video>
+						<video id="my-video" muted="true" autoplay></video>
+						<video id="record-video" src="" autoplay></video>
+					</div>
+
+					<!-- Steps -->
+					<div class="pure-u-1-3">
+						<h2><span style="font-weight:bold">SkyWay Video Call Testing</span></h2>
+						<p>Your ID: <span id="my-id">...</span></p>
+						<p>Share your ID with others so they can call you.</p>
+						<h3>Make a call to:</h3>
+						<form id="make-call" class="pure-form">
+							<input type="text" placeholder="Call user id..." id="callto-id">
+							<button href="#" class="pure-button pure-button-success" type="submit">Call</button>
+						</form>
+						<form id="end-call" class="pure-form">
+							<p>Currently in call with <span id="their-id">...</span></p>
+							<button href="#" class="pure-button pure-button-error" type="submit">End Call</button>
+						</form>
+						<br />
+						<form id="screenshareOn" class="pure-form">
+							<button href="#" class="pure-button pure-button-success" type="submit">Start Screensharing</button>
+						</form>
+						<form id="screenshareOff" class="pure-form" style="display:none;" >
+							<button href="#" class="pure-button pure-button-error" type="submit">Stop Screensharing</button>
+						</form>
+						<br />
+						<form id="recordStart" class="pure-form">
+							<button href="#" class="pure-button pure-button-success" type="submit">Start Recording</button>
+						</form>
+						<form id="recordStop" class="pure-form" style="display:none;">
+							<button href="#" class="pure-button pure-button-error" type="submit">Stop Recording</button>
+						</form>
+						<br />
+						<select id="resolution" style="width:150px;">
+							<option value="1" selected>4K Resolution</option>
+							<option value="2">Quad HD Resolution</option>
+							<option value="3">Full HD Resolution</option>
+							<option value="4">HD Resolution</option>
+						</select>
+					</div>
+				</div>
+			</div>
+    	</div>
+    </section>
+	
+	<!-- javascript -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+	<script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/screenshare-latest.js"></script>
+	<script type="text/javascript" src="https://cdn.WebRTC-Experiment.com/RecordRTC.js"></script>
+	<script type="text/javascript" src="https://cdn.webrtc-experiment.com/gumadapter.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.prettyPhoto.js"></script>
+	<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.97074.js"></script>
+	<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script type="text/javascript" src="js/unslider-min.js"></script>
+	<script type="text/javascript" src="js/template.js"></script>
+</body>
+</html>
