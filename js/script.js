@@ -6,7 +6,7 @@ let existingCall = null;
 let recordRTC = null;
 
 // Prompt for user ID
-//var id = prompt('Enter your user ID: \n (if cancel, random ID will be generated)');
+var id = prompt('Enter your user ID: \n (if cancel, random ID will be generated)');
 
 //get a Global Unique Identifier by appending various browser variables
 //unique for each user's browser
@@ -23,7 +23,7 @@ var guid = function() {
     return guid;
 };
 
-var id = guid(); //set guid as the default ID
+//var id = guid(); //set guid as the default ID
 
 var screenshare = ScreenShare.create({ debug: true });
 
@@ -60,7 +60,7 @@ var HDConstraints = { // HD resolution or 720p
 };
 
 var callOptions = {
-    videoBandwidth: 50000, //set the maximum video bandwidth for WebRTC call
+    videoBandwidth: 5000000, //set the maximum video bandwidth for WebRTC call
 };
 
 $(document).on('change','#resolution',function(){
@@ -80,6 +80,12 @@ function selectResolution(choice){
 }
 
 function startCam(constraints){
+    if (localStream) {
+        localStream.getTracks().forEach((track) => {
+          track.stop();
+        });
+    }
+
     navigator.mediaDevices.getUserMedia(constraints)  //get video feed from video cam
     .then(function (stream) {
         // Success
@@ -148,7 +154,12 @@ $('#screenshareOn').submit(function(e){
             if(existingCall){
                 existingCall.replaceStream(stream); //replace current call's stream
             }
-            localStream = stream;
+            if (localStream) {
+                localStream.getTracks().forEach((track) => {
+                  track.stop();
+                });
+                localStream = stream;
+            }
         })
         .catch(function(error) {
             // error callback
