@@ -4,6 +4,7 @@ let localStream = null;
 let peer = null;
 let existingCall = null;
 let recordRTC = null;
+let audioTrackClone = null;
 
 // Prompt for user ID
 var id = prompt('Enter your user ID: \n (if cancel, random ID will be generated)');
@@ -94,6 +95,11 @@ function startCam(constraints){
             existingCall.replaceStream(stream);
         }
         localStream = stream;
+        if(audioTrackClone) {
+            audioTrackClone.stop();
+            audioTrackClone = null;
+        }
+        audioTrackClone = localStream.getAudioTracks()[0].clone();
     }).catch(function (error) {
         // Error
         console.error('mediaDevice.getUserMedia() error:', error);
@@ -150,6 +156,7 @@ $('#screenshareOn').submit(function(e){
       })
         .then(function(stream) {
             // success callback 
+            stream.addTrack(audioTrackClone);
             $('#my-video').get(0).srcObject = stream; // Get the media stream for the screen share
             if(existingCall){
                 existingCall.replaceStream(stream); //replace current call's stream
