@@ -100,6 +100,9 @@ function startCam(constraints){
             audioTrackClone = null;
         }
         audioTrackClone = localStream.getAudioTracks()[0].clone();
+        console.log('Cloned audio track: ', audioTrackClone);
+        console.log('Current webcam stream: ', localStream);
+        localStream.getTracks().forEach((track) => { console.log(`TRACK TYPE: ${track.kind}, LABEL: ${track.label}`); });
     }).catch(function (error) {
         // Error
         console.error('mediaDevice.getUserMedia() error:', error);
@@ -167,6 +170,8 @@ $('#screenshareOn').submit(function(e){
                 });
                 localStream = stream;
             }
+            console.log('Current Screenshare stream: ', localStream);
+            localStream.getTracks().forEach((track) => { console.log(`TRACK TYPE: ${track.kind}, LABEL: ${track.label}`); });
         })
         .catch(function(error) {
             // error callback
